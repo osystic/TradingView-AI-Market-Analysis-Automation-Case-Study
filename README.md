@@ -8,93 +8,96 @@
 
 ## What this repository is
 
-An anonymized engineering case study for a Python-based intraday market-analysis workflow covering historical OHLCV preparation, feature engineering, chronological model validation, zone/regime research, execution-oriented analysis, and repository hardening.
+An anonymized case study of a small-cap intraday market-analysis engagement that evolved from a statistically grounded TradingView resistance/rejection indicator into a broader research framework for dynamic universe construction, point-in-time features, structural zones, path-dependent outcomes, execution-aware evaluation, and early regime analysis.
 
-The engagement accumulated notebook-driven research and generated artifacts over multiple milestones. The engineering objective was to convert that research process into a disciplined validation pattern without turning historical model output into unsupported live-trading claims.
+The strongest engineering lesson was that model sophistication is not enough: the universe, timestamps, labels, normalization, execution assumptions, and research/production boundary all have to survive independent review.
+
+## Engagement outcome
+
+The initial indicator stage was completed and accepted, including a practical signal-state fix that required current zone interaction and a wick-aware interaction refinement.
+
+The later research stage expanded substantially. It rebuilt the market universe dynamically, tightened point-in-time data construction, explored PMH and deterministic FIBO-style exhaustion structures, introduced path-dependent forward labeling, and separated raw statistical movement from constrained execution-oriented evaluation.
+
+The final research package was **not promoted to production**. An independent methodological review identified additional stabilization work around possible leakage in part of the EV methodology, normalization consistency, and interpretation of some zone/regime relationships. The engagement was therefore closed at a research-validation milestone rather than turning exploratory evidence into an unsupported production-trading claim.
 
 ## Public vs. private repository boundary
 
-| Area | This public showcase | Confidential delivery repository |
+| Area | This public showcase | Confidential engineering repository |
 |---|---|---|
 | Visibility | **Public** | **Private** |
-| Purpose | Portfolio, proposals, capability proof | Engineering source of truth |
+| Purpose | Portfolio, proposals, capability proof | Retained engineering source/history |
 | Implementation notebooks/source | **Not included** | Controlled/private |
-| Raw or licensed datasets | **Not included** | Controlled/private |
-| Serialized delivery models | **Not included** | Controlled/private |
+| Raw or licensed datasets | **Not included** | Controlled/private/history |
+| Serialized delivery models | **Not included** | Controlled/private/history |
 | Client identity / conversations | **Not included** | Controlled/private |
+| Commercial information | **Not included** | Controlled/private |
 | Safe to share publicly | **Yes** | **No** |
 
-This repository is not a fork, mirror, or source-code export. It has independent Git history and contains only sanitized documentation and diagrams.
+This repository is not a fork, mirror, or source-code export. It has **independent Git history** and contains only sanitized documentation and diagrams.
 
-## Challenge
-
-- Normalize intraday OHLCV inputs before downstream research.
-- Keep temporal train/test boundaries explicit to reduce leakage risk.
-- Move reusable validation logic out of ad-hoc notebook state.
-- Separate model research from zone/regime and execution-oriented analysis.
-- Distinguish generated evidence from maintained engineering source.
-- Prevent market-data/API credentials and machine-specific paths from entering maintained code.
-- Create a portfolio-safe explanation without copying confidential implementation details.
-
-## Engineering approach
+## Research architecture
 
 ```text
-Historical OHLCV
-      ↓
-Schema / timestamp / price validation
-      ↓
-Feature engineering
-      ↓
-Chronological train/test separation
-      ↓
-Classification research
-      ↓
-Zone / regime analysis
-      ↓
-Execution-oriented validation
-      ↓
-Governed evidence + handover
+Dynamic / historical OHLCV universe
+              ↓
+Point-in-time data validation
+              ↓
+Momentum / liquidity feature engineering
+              ↓
+Structural zone construction
+              ↓
+Path-dependent event outcomes
+              ↓
+Chronological model validation
+              ↓
+Continuation vs rejection analysis
+              ↓
+Execution approximation / outlier checks
+              ↓
+Regime-oriented research
+              ↓
+Evidence + explicit limitation boundary
 ```
 
 ## Engineering highlights
 
-- **Temporal validation:** chronological out-of-sample separation rather than relying on random-only splits.
-- **Data contracts:** explicit checks for OHLC consistency, timestamps, required columns, ordering, and missing values.
-- **Feature discipline:** momentum, volatility, relative-volume, and price-structure families are treated as reproducible transformations rather than notebook-only state.
-- **Model boundary:** classification metrics are evidence about a historical validation setup, not a promise of future trading performance.
-- **Research separation:** zone/regime analysis is kept conceptually separate from the classifier so each layer can be reviewed independently.
-- **Repository hardening:** secret-bearing and environment-specific research surfaces were removed from maintained source and future credentials are environment-injected.
-- **Offline validation:** deterministic tests and a synthetic-data smoke path make core validation possible without network access or private data.
-
-## Validation evidence
-
-![Validation evidence](assets/validation.svg)
-
-The maintained private engineering baseline was validated through repository invariants, Python syntax checks, unit tests for market-data and temporal-boundary rules, and an offline synthetic-data smoke pipeline. This public repository independently validates its own **disclosure boundary** and required showcase artifacts.
-
-> Public CI does not contain or run the confidential implementation and does not reproduce private historical trading results.
+- **Representative-universe correction:** the workflow moved from a narrow symbol set toward day-by-day momentum-universe reconstruction.
+- **Point-in-time discipline:** event price, ATR context, VWAP, and time-normalized relative volume were reviewed against what was knowable at the interaction timestamp.
+- **Structure-aware zones:** Premarket High remained a primary liquidity level while later work tested a deterministic exhaustion/retracement zone with explicit anchoring/activation rules.
+- **Path-dependent labels:** outcomes were evaluated by threshold order and paired with MFE/MAE and time-to-event measures rather than relying only on static direction labels.
+- **Execution boundary:** raw excursion/EV findings were separated from constrained TP/SL-style approximation and outlier sensitivity.
+- **Regime awareness:** large behavioral differences across liquidity/momentum groups motivated conditional analysis rather than one global average.
+- **Research integrity:** unresolved methodology was documented as a limitation instead of being marketed as production alpha.
+- **Repository hardening:** secret-bearing and machine-specific research surfaces were removed from maintained source; public material is independently sanitized.
 
 ## Technology
 
-`Python` · `pandas` · `NumPy` · `scikit-learn` · `OHLCV validation` · `chronological model validation` · `TradingView-oriented research` · `GitHub Actions`
+`Python` · `pandas` · `NumPy` · `scikit-learn` · `OHLCV validation` · `time-series validation` · `TradingView / Pine research` · `GitHub Actions`
+
+## Validation boundary
+
+The private engineering archive contains the confidential research history and controlled implementation material. The public repository validates only its disclosure-safe documentation boundary.
+
+> This showcase does not reproduce confidential historical results and does not independently validate live trading performance.
 
 ## What is intentionally not claimed
 
 This showcase does **not** claim:
 
 - guaranteed profitability, alpha, ROI, win rate, or loss prevention;
+- production trading readiness;
 - live broker execution equivalence;
+- that every historical research output survived later methodology review;
 - future performance from historical classification metrics;
-- that private market data can be redistributed publicly;
+- redistribution rights for private/licensed market data;
 - that this public repository reproduces the confidential implementation;
 - that TradingView alert delivery or brokerage automation is validated here.
 
-## Full case study
+## Read more
 
-[**Read the full public case study**](case-study.md)
-
-Additional public-safe detail:
-
+- [Full case study](case-study.md)
+- [Research evolution](docs/research-evolution.md)
+- [Engineering lessons learned](docs/lessons-learned.md)
 - [Technical overview](docs/technical-overview.md)
 - [Validation evidence](docs/validation-evidence.md)
 - [Disclosure boundary](docs/disclosure-boundary.md)
@@ -102,4 +105,4 @@ Additional public-safe detail:
 
 ## Disclosure boundary
 
-Only sanitized architecture, methodology, validation approach, repository-hardening practices, and engineering lessons are published here. Confidential implementation source, raw datasets, private model artifacts, client information, credentials, private infrastructure, and private repository history are intentionally excluded.
+Only sanitized architecture, methodology, validation approach, repository-hardening practices, research limitations, and engineering lessons are published here. Confidential implementation source, raw datasets, private model artifacts, client information, credentials, private infrastructure, contract details, and private repository history are intentionally excluded.
