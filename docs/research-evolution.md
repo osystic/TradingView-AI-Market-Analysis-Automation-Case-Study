@@ -39,6 +39,21 @@ The final research package was intentionally positioned as a research-grade stru
 
 The engagement was closed at that research milestone rather than promoting an insufficiently audited framework into production.
 
+## Stage 6 — post-closure artifact and provenance audit
+
+After closure, original delivery material was recovered and compared against the maintained engineering archive. This produced a second kind of validation: not model validation, but **artifact-authority validation**.
+
+Recovered items were evaluated by content hash, chronology, supersession state, significance, repository size/fitness, and security risk. The resulting private-repository policy was deliberately selective:
+
+- exact duplicates were rejected;
+- earlier revisions were not restored when a later authoritative state was available;
+- bulk generated datasets and archive exports remained outside the clean maintained tree;
+- commercial/legal artifacts were treated as provenance rather than engineering source;
+- legacy source containing embedded access material was quarantined rather than recommitted;
+- only a compact authoritative implementation/evidence subset was retained privately.
+
+The public showcase was re-reviewed after that audit and remained source-free. No recovered private code, dataset, model, report binary, archive, credential, or commercial document was imported here.
+
 ## Engineering takeaway
 
-The most important result was not a headline accuracy number. It was the validation process itself: progressively better data-universe construction, point-in-time features, path-aware labels, execution-aware evaluation, and the willingness to stop when research evidence was not yet strong enough for a production claim.
+The most important result was not a headline accuracy number. It was the validation process itself: progressively better data-universe construction, point-in-time features, path-aware labels, execution-aware evaluation, the willingness to stop when research evidence was not yet strong enough for a production claim, and the discipline to treat historical artifact recovery as a provenance/security exercise rather than a bulk restore.
