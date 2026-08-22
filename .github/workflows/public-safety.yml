@@ -24,8 +24,10 @@ jobs:
           grep -q '^repository_class: public-showcase$' .osystic/repository.yml
           grep -q '^visibility: public$' .osystic/repository.yml
           grep -q '^  source_code_included: false$' .osystic/repository.yml
+          grep -q '^  recovery_audit_reviewed: true$' .osystic/repository.yml
           grep -q '^  contact_information_included: false$' .osystic/repository.yml
           grep -q '^  credentials_included: false$' .osystic/repository.yml
+          grep -q '^  recovered_private_artifacts_included: false$' .osystic/repository.yml
           grep -q '^  independent_git_history: true$' .osystic/repository.yml
 
       - name: Confirm required public artifacts
@@ -40,6 +42,9 @@ jobs:
             assets/architecture.svg
             assets/validation.svg
             docs/technical-overview.md
+            docs/research-evolution.md
+            docs/lessons-learned.md
+            docs/repository-hardening.md
             docs/validation-evidence.md
             docs/disclosure-boundary.md
             docs/standardization-acceptance.md
@@ -54,8 +59,17 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          if git ls-files | grep -Ei '\.(py|ipynb|pkl|joblib|csv|parquet|zip|7z|rar|pdf|mq4|ex4|mq5|ex5|pine|js|ts|cpp|c|h)$'; then
-            echo 'Implementation, dataset, model, archive, report, or executable artifact detected in public showcase.'
+          if git ls-files | grep -Ei '\.(py|ipynb|pkl|joblib|csv|parquet|zip|7z|rar|pdf|txt|docx|xlsx|xls|pptx|mq4|ex4|mq5|ex5|pine|js|ts|cpp|c|h)$'; then
+            echo 'Implementation, dataset, model, archive, report, office document, or executable artifact detected in public showcase.'
+            exit 1
+          fi
+
+      - name: Reject source disguised as documentation
+        shell: bash
+        run: |
+          set -euo pipefail
+          if git grep -FIn -e '//@version=' -e 'indicator("' -e 'strategy("' -- ':!.github/workflows/public-safety.yml'; then
+            echo 'TradingView implementation source marker detected in public showcase.'
             exit 1
           fi
 
@@ -84,6 +98,8 @@ jobs:
           grep -Fq 'PUBLIC SHOWCASE · SANITIZED · PORTFOLIO-SAFE' README.md
           grep -Fq 'Public vs. private repository boundary' README.md
           grep -Fq 'independent Git history' README.md
+          grep -Fq 'Post-closure evidence governance' README.md
+          grep -Fq 'Artifact recovery needs authority checks' docs/lessons-learned.md
 
       - name: Reject obvious private-material markers
         shell: bash

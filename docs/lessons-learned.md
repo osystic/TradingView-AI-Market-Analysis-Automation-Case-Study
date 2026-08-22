@@ -36,6 +36,19 @@ Liquidity, premarket gain, session, and structural-zone conditions may describe 
 
 The final research review identified issues that warranted further stabilization rather than deployment. Treating those findings as limitations—and closing the engagement at a research milestone—was a stronger engineering outcome than turning exploratory statistics into unsupported production claims.
 
+## Artifact recovery needs authority checks, not bulk restoration
+
+A historical delivery folder is not automatically a source-of-truth. A later recovery audit showed that client-delivery material can contain exact duplicates, obsolete revisions, generated datasets, packaging copies, commercial records, and legacy source that no longer meets present security standards.
+
+A clean repository therefore needs to answer four questions before restoring anything:
+
+1. Is this artifact unique?
+2. Is it the latest authoritative version?
+3. Does it materially improve reproducibility or evidence quality?
+4. Is it safe and appropriate for Git?
+
+If the answer is no, provenance can be recorded without recommitting the payload.
+
 ## Public evidence should be sanitized, not mirrored
 
-A portfolio case study can demonstrate architecture, validation discipline, and lessons without shipping private implementation, licensed data, credentials, client identity, or copied private Git history.
+A portfolio case study can demonstrate architecture, validation discipline, provenance controls, and lessons without shipping private implementation, licensed data, credentials, client identity, recovered delivery packages, or copied private Git history.
