@@ -2,6 +2,8 @@ schema_version: 1
 repository_class: public-showcase
 visibility: public
 lifecycle: maintenance
+project_status: closed-research-engagement
+source_project_closed_on: 2026-05-12
 owner_team: engineering
 data_classification: public
 client_identity_public: false
@@ -12,6 +14,7 @@ source:
   type: sanitized-client-delivery
   confidential_source_linked: false
   source_code_included: false
+  production_trading_ready: false
 publication:
   contact_information_included: false
   credentials_included: false
@@ -21,6 +24,10 @@ publication:
   private_datasets_included: false
   serialized_delivery_models_included: false
   independent_git_history: true
+claims:
+  profitability_claimed: false
+  production_alpha_claimed: false
+  live_execution_validated: false
 delivery:
   default_branch: main
   ci_required: true
