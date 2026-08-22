@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This document describes the public-safe architecture of a quantitative market-analysis research workflow. It intentionally omits implementation source, private datasets, model binaries, confidential parameters, and client-specific operational details.
+This document describes the public-safe architecture of a quantitative market-analysis research workflow. It intentionally omits implementation source, private datasets, model binaries, confidential parameters, recovered delivery payloads, and client-specific operational details.
 
 ## Conceptual components
 
@@ -38,6 +38,12 @@ Research outputs may be evaluated under explicit entry/exit assumptions. This re
 
 Maintained logic, generated evidence, confidential artifacts, and public documentation are separated. CI checks structural and disclosure invariants that can be tested deterministically in GitHub.
 
+### 9. Artifact provenance and recovery
+
+Post-closure evidence recovery is treated as a separate control layer. Historical files are not restored merely because they once formed part of a delivery. They are reviewed for duplicate content, chronology, supersession, significance, repository fitness, and security risk. Only authoritative private artifacts that materially improve the engineering source-of-truth should return to maintained Git.
+
+The public repository records this methodology without importing private recovery payloads.
+
 ## Public architecture boundary
 
-This repository documents the architecture only. No proprietary Python implementation, private notebook, raw licensed data, serialized delivery model, private report, or credential is included.
+This repository documents the architecture and governance pattern only. No proprietary Python implementation, Pine source, private notebook, raw licensed data, serialized delivery model, private report binary, archive package, recovered delivery payload, or credential is included.
