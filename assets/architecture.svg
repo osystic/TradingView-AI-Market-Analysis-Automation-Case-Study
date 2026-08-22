@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Market analysis research architecture</title>
+  <desc id="desc">Flow from historical OHLCV through validation, features, chronological model research, regime analysis, execution validation, and governed evidence.</desc>
+  <rect width="1200" height="520" rx="24" fill="#0d1117"/>
+  <text x="600" y="54" text-anchor="middle" fill="#f0f6fc" font-family="Arial, sans-serif" font-size="28" font-weight="700">Sanitized Research Architecture</text>
+  <g font-family="Arial, sans-serif" font-size="18" text-anchor="middle">
+    <g fill="#161b22" stroke="#58a6ff" stroke-width="2">
+      <rect x="45" y="125" width="180" height="86" rx="14"/><rect x="285" y="125" width="180" height="86" rx="14"/><rect x="525" y="125" width="180" height="86" rx="14"/><rect x="765" y="125" width="180" height="86" rx="14"/><rect x="1005" y="125" width="150" height="86" rx="14"/>
+      <rect x="285" y="310" width="180" height="86" rx="14"/><rect x="525" y="310" width="180" height="86" rx="14"/><rect x="765" y="310" width="180" height="86" rx="14"/>
+    </g>
+    <g fill="#f0f6fc">
+      <text x="135" y="160">Historical</text><text x="135" y="184">OHLCV</text>
+      <text x="375" y="160">Data</text><text x="375" y="184">validation</text>
+      <text x="615" y="160">Feature</text><text x="615" y="184">engineering</text>
+      <text x="855" y="160">Chronological</text><text x="855" y="184">split</text>
+      <text x="1080" y="160">Classifier</text><text x="1080" y="184">research</text>
+      <text x="375" y="345">Zone / regime</text><text x="375" y="369">analysis</text>
+      <text x="615" y="345">Execution-oriented</text><text x="615" y="369">validation</text>
+      <text x="855" y="345">Governed evidence</text><text x="855" y="369">and handover</text>
+    </g>
+  </g>
+  <g stroke="#8b949e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M225 168 H285"/><path d="M465 168 H525"/><path d="M705 168 H765"/><path d="M945 168 H1005"/>
+    <path d="M1080 211 V255 H375 V310"/><path d="M465 353 H525"/><path d="M705 353 H765"/>
+  </g>
+  <g fill="#8b949e">
+    <polygon points="280,161 292,168 280,175"/><polygon points="520,161 532,168 520,175"/><polygon points="760,161 772,168 760,175"/><polygon points="1000,161 1012,168 1000,175"/>
+    <polygon points="368,305 375,317 382,305"/><polygon points="520,346 532,353 520,360"/><polygon points="760,346 772,353 760,360"/>
+  </g>
+  <text x="600" y="468" text-anchor="middle" fill="#8b949e" font-family="Arial, sans-serif" font-size="16">Public diagram only — confidential implementation and data are intentionally excluded.</text>
+</svg>
