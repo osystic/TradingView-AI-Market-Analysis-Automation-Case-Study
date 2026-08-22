@@ -15,7 +15,9 @@ source:
   confidential_source_linked: false
   source_code_included: false
   production_trading_ready: false
+  recovery_audit_reviewed: true
 publication:
+  last_reviewed_on: 2026-08-23
   contact_information_included: false
   credentials_included: false
   private_infrastructure_included: false
@@ -23,6 +25,7 @@ publication:
   private_conversations_included: false
   private_datasets_included: false
   serialized_delivery_models_included: false
+  recovered_private_artifacts_included: false
   independent_git_history: true
 claims:
   profitability_claimed: false
