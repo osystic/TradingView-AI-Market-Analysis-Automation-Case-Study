@@ -4,7 +4,7 @@
 
 A milestone-based quantitative research workflow accumulated interactive notebooks, historical market-data preparation steps, engineered features, classification experiments, zone/regime studies, execution-oriented analysis, and generated reports.
 
-The final engineering problem was broader than model training. The workflow needed a clear source-of-truth, explicit temporal validation, reproducible checks, stronger secret handling, and a defensible boundary between historical research evidence and live-trading claims.
+The final engineering problem was broader than model training. The workflow needed a clear source-of-truth, explicit temporal validation, reproducible checks, stronger secret handling, a defensible boundary between historical research evidence and live-trading claims, and a disciplined method for deciding which historical delivery artifacts still belonged in maintained Git.
 
 ## Engineering challenges
 
@@ -14,11 +14,12 @@ The final engineering problem was broader than model training. The workflow need
 4. **Model interpretation** — classification performance needed to be reported as validation evidence rather than a profitability guarantee.
 5. **Layer separation** — model research, zone/regime research, and execution-oriented analysis needed independent review boundaries.
 6. **Credential safety** — market-data credentials and machine-specific paths could not remain embedded in maintained engineering artifacts.
-7. **Portfolio publication** — public proof had to demonstrate engineering capability without exposing private source, datasets, client information, or delivery history.
+7. **Artifact provenance** — recovered files needed duplicate, supersession, significance, bulk-data, and security review before any restoration to maintained source.
+8. **Portfolio publication** — public proof had to demonstrate engineering capability without exposing private source, datasets, client information, or delivery history.
 
 ## Solution pattern
 
-The governed engineering pattern separates input validation, deterministic feature generation, chronological splitting, model evaluation, research overlays, and evidence handling.
+The governed engineering pattern separates input validation, deterministic feature generation, chronological splitting, model evaluation, research overlays, evidence handling, and post-closure provenance review.
 
 ```text
 Input data contract
@@ -35,7 +36,9 @@ Independent zone / regime research
       ↓
 Execution-oriented analysis
       ↓
-Evidence, limitations, and handover
+Evidence + limitation boundary
+      ↓
+Closure + artifact provenance review
 ```
 
 ## Data discipline
@@ -66,23 +69,39 @@ Keeping these layers separate reduces the risk of presenting one aggregate metri
 
 The legacy workflow contained a large amount of generated research material and environment-specific notebook state. Standardization introduced a maintained-source boundary, deterministic tests, synthetic offline validation, explicit documentation, and stricter secret controls.
 
-A particularly important lesson was that trading-research repositories require strong credential hygiene because market-data API keys are common in notebooks. Future integrations should inject credentials through environment variables or a secret manager rather than embedding them in source.
+A particularly important lesson was that trading-research repositories require strong credential hygiene because market-data access material is commonly embedded in exploratory notebooks. Future integrations should inject sensitive configuration through environment variables or a secret manager rather than embedding it in source.
+
+## Post-closure artifact recovery
+
+A later evidence-recovery pass demonstrated that restoring historical files is itself an engineering-governance problem. The recovered private-delivery set contained multiple classes of material that should not automatically return to `main`: exact duplicates, earlier revisions, intermediate reports, very large generated datasets, commercial documents, archives, and legacy source with embedded access material.
+
+The controlled recovery process therefore used five filters:
+
+1. **Hash deduplication** to reject byte-identical copies.
+2. **Chronology and supersession** to prefer the later authoritative implementation state over earlier revisions.
+3. **Significance** to retain only artifacts that materially improve the engineering source-of-truth.
+4. **Repository fitness** to keep bulk generated datasets and package exports out of ordinary Git history.
+5. **Security quarantine** to prevent secret-bearing legacy source from being recommitted.
+
+The private repository retained only a small authoritative implementation/evidence subset. This public showcase retained **none** of the recovered private artifacts; it documents only the sanitized governance pattern and resulting engineering lessons.
 
 ## Validation strategy
 
 The maintained private engineering baseline uses several levels of validation:
 
 - repository governance and structure invariants;
+- secret-pattern validation;
 - Python syntax validation;
 - unit tests for data-contract and temporal-split behavior;
 - synthetic offline smoke validation;
-- explicit documentation of what GitHub CI can and cannot prove.
+- explicit documentation of what GitHub CI can and cannot prove;
+- post-closure artifact provenance and deduplication review.
 
 This public repository separately validates that the showcase remains disclosure-safe and contains the required documentation artifacts without confidential implementation source.
 
 ## Outcome
 
-The key outcome is a cleaner engineering lifecycle: research evidence remains reviewable, reusable logic is tested, confidential material stays private, and the public artifact demonstrates architecture and methodology without claiming more than the evidence supports.
+The key outcome is a cleaner engineering lifecycle: research evidence remains reviewable, reusable logic is tested, confidential material stays private, historical artifacts are retained only when they remain authoritative and useful, and the public artifact demonstrates architecture and methodology without claiming more than the evidence supports.
 
 ## Lessons
 
@@ -90,5 +109,7 @@ The key outcome is a cleaner engineering lifecycle: research evidence remains re
 - Notebook output should be treated as research evidence unless promoted into tested reusable logic.
 - Temporal separation should be visible in code, tests, and documentation.
 - Market-data repositories need explicit credential controls in addition to generic secret scanning.
+- Historical artifact recovery requires hash-based deduplication and supersession-aware review, not bulk re-import.
+- Large generated datasets and package exports should not be committed merely because they once formed part of a client delivery.
 - Model metrics and trading profitability are different claims and should never be conflated.
 - Public portfolio repositories should use independent sanitized history instead of mirroring private delivery repositories.
