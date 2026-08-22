@@ -10,7 +10,7 @@
 
 An anonymized case study of a small-cap intraday market-analysis engagement that evolved from a statistically grounded TradingView resistance/rejection indicator into a broader research framework for dynamic universe construction, point-in-time features, structural zones, path-dependent outcomes, execution-aware evaluation, and early regime analysis.
 
-The strongest engineering lesson was that model sophistication is not enough: the universe, timestamps, labels, normalization, execution assumptions, and research/production boundary all have to survive independent review.
+The strongest engineering lesson was that model sophistication is not enough: the universe, timestamps, labels, normalization, execution assumptions, evidence provenance, and research/production boundary all have to survive independent review.
 
 ## Engagement outcome
 
@@ -19,6 +19,21 @@ The initial indicator stage was completed and accepted, including a practical si
 The later research stage expanded substantially. It rebuilt the market universe dynamically, tightened point-in-time data construction, explored PMH and deterministic FIBO-style exhaustion structures, introduced path-dependent forward labeling, and separated raw statistical movement from constrained execution-oriented evaluation.
 
 The final research package was **not promoted to production**. An independent methodological review identified additional stabilization work around possible leakage in part of the EV methodology, normalization consistency, and interpretation of some zone/regime relationships. The engagement was therefore closed at a research-validation milestone rather than turning exploratory evidence into an unsupported production-trading claim.
+
+## Post-closure evidence governance
+
+A later repository audit re-examined recovered delivery artifacts against the project timeline and the final research state. The private engineering archive applied a significant-only retention policy rather than copying every historical attachment back into the maintained tree.
+
+That review used:
+
+- content hashing to identify exact duplicates;
+- chronology and supersession checks to distinguish later authoritative artifacts from earlier revisions;
+- size and generated-data controls to keep bulk research exports out of maintained Git;
+- secret scanning and quarantine rules for legacy source containing embedded access material;
+- selective retention of the later chart-runtime source and compact final-research evidence in the private repository;
+- an explicit rule that **no recovered private artifact is imported into this public showcase**.
+
+This public repository records the engineering and governance lessons from that audit without exposing private filenames, source code, datasets, commercial documents, hashes, or credentials. See [Repository hardening & artifact recovery](docs/repository-hardening.md).
 
 ## Public vs. private repository boundary
 
@@ -31,6 +46,7 @@ The final research package was **not promoted to production**. An independent me
 | Serialized delivery models | **Not included** | Controlled/private/history |
 | Client identity / conversations | **Not included** | Controlled/private |
 | Commercial information | **Not included** | Controlled/private |
+| Recovered delivery artifacts | **Not included** | Deduplicated/significant-only retention |
 | Safe to share publicly | **Yes** | **No** |
 
 This repository is not a fork, mirror, or source-code export. It has **independent Git history** and contains only sanitized documentation and diagrams.
@@ -57,6 +73,8 @@ Execution approximation / outlier checks
 Regime-oriented research
               ↓
 Evidence + explicit limitation boundary
+              ↓
+Post-closure artifact/provenance audit
 ```
 
 ## Engineering highlights
@@ -68,7 +86,8 @@ Evidence + explicit limitation boundary
 - **Execution boundary:** raw excursion/EV findings were separated from constrained TP/SL-style approximation and outlier sensitivity.
 - **Regime awareness:** large behavioral differences across liquidity/momentum groups motivated conditional analysis rather than one global average.
 - **Research integrity:** unresolved methodology was documented as a limitation instead of being marketed as production alpha.
-- **Repository hardening:** secret-bearing and machine-specific research surfaces were removed from maintained source; public material is independently sanitized.
+- **Artifact provenance:** recovered delivery material was deduplicated, evaluated for supersession and security risk, and retained privately only when it remained significant.
+- **Repository hardening:** secret-bearing and machine-specific research surfaces were kept out of maintained source; public material remains independently sanitized.
 
 ## Technology
 
@@ -98,6 +117,7 @@ This showcase does **not** claim:
 - [Full case study](case-study.md)
 - [Research evolution](docs/research-evolution.md)
 - [Engineering lessons learned](docs/lessons-learned.md)
+- [Repository hardening & artifact recovery](docs/repository-hardening.md)
 - [Technical overview](docs/technical-overview.md)
 - [Validation evidence](docs/validation-evidence.md)
 - [Disclosure boundary](docs/disclosure-boundary.md)
@@ -105,4 +125,4 @@ This showcase does **not** claim:
 
 ## Disclosure boundary
 
-Only sanitized architecture, methodology, validation approach, repository-hardening practices, research limitations, and engineering lessons are published here. Confidential implementation source, raw datasets, private model artifacts, client information, credentials, private infrastructure, contract details, and private repository history are intentionally excluded.
+Only sanitized architecture, methodology, validation approach, repository-hardening practices, research limitations, provenance lessons, and engineering lessons are published here. Confidential implementation source, raw datasets, private model artifacts, client information, credentials, private infrastructure, contract details, private delivery binaries, and private repository history are intentionally excluded.
