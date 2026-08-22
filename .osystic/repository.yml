@@ -10,6 +10,8 @@ client_identity_public: false
 portfolio:
   eligible: true
   status: approved-public-showcase
+  publisher: OSYSTIC
+  presentation_standard: company-engineering-case-study
 source:
   type: sanitized-client-delivery
   confidential_source_linked: false
@@ -18,6 +20,9 @@ source:
   recovery_audit_reviewed: true
 publication:
   last_reviewed_on: 2026-08-23
+  branded_as_osystic: true
+  reuse_boundary_defined: true
+  open_source_license_granted: false
   contact_information_included: false
   credentials_included: false
   private_infrastructure_included: false

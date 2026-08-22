@@ -1,10 +1,24 @@
 # TradingView AI Market-Analysis Automation — Case Study
 
-> **PUBLIC SHOWCASE · SANITIZED · PORTFOLIO-SAFE**
+> **OSYSTIC ENGINEERING CASE STUDY · PUBLIC SHOWCASE · SANITIZED · PORTFOLIO-SAFE**
 >
-> This repository is a public engineering proof artifact. It contains **no client identity, no confidential implementation source, no private datasets, no serialized private models, no credentials, no account details, no commercial terms, and no private conversations**.
+> Prepared under the **OSYSTIC public engineering showcase standard** for client, partner, technical-review, and portfolio use. This repository contains **no client identity, no confidential implementation source, no private datasets, no serialized private models, no credentials, no account details, no commercial terms, and no private conversations**.
 
 ![Architecture](assets/architecture.svg)
+
+## Company showcase classification
+
+| Attribute | Public classification |
+|---|---|
+| Publisher | **OSYSTIC** |
+| Artifact type | Engineering case study / capability proof |
+| Source engagement | Closed research engagement |
+| Publication model | Sanitized public showcase with independent Git history |
+| Confidential implementation | Excluded and retained privately |
+| Production-trading claim | None |
+| Intended use | Portfolio, proposals, technical due diligence, capability review |
+
+This case study is designed to demonstrate engineering judgment, validation discipline, research governance, and responsible disclosure rather than to function as a downloadable client-delivery package.
 
 ## What this repository is
 
@@ -93,6 +107,10 @@ Post-closure artifact/provenance audit
 
 `Python` · `pandas` · `NumPy` · `scikit-learn` · `OHLCV validation` · `time-series validation` · `TradingView / Pine research` · `GitHub Actions`
 
+## Capability keywords
+
+`tradingview` · `pine-script` · `quantitative-research` · `market-analysis` · `time-series` · `machine-learning` · `model-validation` · `data-governance` · `research-engineering` · `github-actions`
+
 ## Validation boundary
 
 The private engineering archive contains the confidential research history and controlled implementation material. The public repository validates only its disclosure-safe documentation boundary.
@@ -122,7 +140,12 @@ This showcase does **not** claim:
 - [Validation evidence](docs/validation-evidence.md)
 - [Disclosure boundary](docs/disclosure-boundary.md)
 - [Standardization acceptance](docs/standardization-acceptance.md)
+- [Publication and reuse notice](NOTICE.md)
 
 ## Disclosure boundary
 
 Only sanitized architecture, methodology, validation approach, repository-hardening practices, research limitations, provenance lessons, and engineering lessons are published here. Confidential implementation source, raw datasets, private model artifacts, client information, credentials, private infrastructure, contract details, private delivery binaries, and private repository history are intentionally excluded.
+
+## Publication and reuse
+
+This is an **OSYSTIC public engineering case study**, not an open-source delivery repository. Public visibility permits viewing, linking, and citation of this showcase; it does not grant unrestricted rights to copy, repackage, white-label, resell, or republish substantial content or diagrams. See [NOTICE.md](NOTICE.md) for the publication and reuse boundary.

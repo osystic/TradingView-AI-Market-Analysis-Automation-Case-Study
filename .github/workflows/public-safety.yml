@@ -23,8 +23,13 @@ jobs:
           set -euo pipefail
           grep -q '^repository_class: public-showcase$' .osystic/repository.yml
           grep -q '^visibility: public$' .osystic/repository.yml
+          grep -q '^  publisher: OSYSTIC$' .osystic/repository.yml
+          grep -q '^  presentation_standard: company-engineering-case-study$' .osystic/repository.yml
           grep -q '^  source_code_included: false$' .osystic/repository.yml
           grep -q '^  recovery_audit_reviewed: true$' .osystic/repository.yml
+          grep -q '^  branded_as_osystic: true$' .osystic/repository.yml
+          grep -q '^  reuse_boundary_defined: true$' .osystic/repository.yml
+          grep -q '^  open_source_license_granted: false$' .osystic/repository.yml
           grep -q '^  contact_information_included: false$' .osystic/repository.yml
           grep -q '^  credentials_included: false$' .osystic/repository.yml
           grep -q '^  recovered_private_artifacts_included: false$' .osystic/repository.yml
@@ -91,15 +96,19 @@ jobs:
             exit 1
           fi
 
-      - name: Confirm disclosure language
+      - name: Confirm disclosure and company presentation language
         shell: bash
         run: |
           set -euo pipefail
-          grep -Fq 'PUBLIC SHOWCASE · SANITIZED · PORTFOLIO-SAFE' README.md
+          grep -Fq 'OSYSTIC ENGINEERING CASE STUDY · PUBLIC SHOWCASE · SANITIZED · PORTFOLIO-SAFE' README.md
+          grep -Fq 'Company showcase classification' README.md
           grep -Fq 'Public vs. private repository boundary' README.md
           grep -Fq 'independent Git history' README.md
           grep -Fq 'Post-closure evidence governance' README.md
           grep -Fq 'Artifact recovery needs authority checks' docs/lessons-learned.md
+          grep -Fq 'Copyright © 2026 OSYSTIC (PRIVATE) LIMITED. All rights reserved.' NOTICE.md
+          grep -Fq 'No open-source license is granted' NOTICE.md
+          grep -Fq 'attribute it to **OSYSTIC**' NOTICE.md
 
       - name: Reject obvious private-material markers
         shell: bash
