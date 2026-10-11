@@ -40,3 +40,14 @@ delivery:
   default_branch: main
   ci_required: true
   production_environment: false
+
+project:
+  key: tradingview-ai-market-analysis-automation
+  name: TradingView AI Market Analysis Automation
+  status: completed
+
+website:
+  eligible: true
+  status: ready-for-review
+  canonical_slug: tradingview-ai-market-analysis-automation
+  auto_sync: true
